@@ -26,7 +26,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
           {" | "}
         </nav>
       </header>
-      <div className="container min-h-screen">{children}</div>
+      <main className="container min-h-screen">{children}</main>
       <footer>
         <hr />
         <span>I'm here to stay (Footer)</span>
