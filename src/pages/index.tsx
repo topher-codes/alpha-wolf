@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import CreatureCard from "../components/creaturecard";
 
 const Home: NextPage = () => {
   return (
@@ -27,7 +28,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="flex min-h-screen w-screen flex-col items-center justify-center p-10">
-        Some more stuff
+        <CreatureCard />
       </div>
     </>
   );

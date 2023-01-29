@@ -64,3 +64,12 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Creature {
+    id     String  @id @default(cuid())
+    name   String
+    type   String
+    health Int
+    power  Int
+    image  String?
+}

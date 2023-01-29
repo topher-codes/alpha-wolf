@@ -2,12 +2,15 @@
 import Link from "next/link";
 import Head from "next/head";
 import type { PropsWithChildren } from "react";
+import { useSession } from "next-auth/react";
 
 export const Layout = ({ children }: PropsWithChildren) => {
+  const session = useSession();
+  const id = session?.data?.user?.id || "0";
   return (
     <div>
       <Head>
-        <title>Next.js + TypeScript Example</title>
+        <title>Alpha Wolf</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header>
@@ -21,9 +24,12 @@ export const Layout = ({ children }: PropsWithChildren) => {
           </div>
           {" | "}
           <div className="mx-4 flex w-auto items-center justify-center text-2xl font-bold text-white">
-            <Link href="/profile">User Profile</Link>
+            <Link href={`/profile/${id}`}>User Profile</Link>
           </div>
           {" | "}
+          <div className="mx-4 flex w-auto items-center justify-center text-2xl font-bold text-white">
+            <Link href="/creature">Creature</Link>
+          </div>
         </nav>
       </header>
       <main className="container min-h-screen">{children}</main>
