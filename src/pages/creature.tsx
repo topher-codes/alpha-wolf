@@ -24,17 +24,11 @@ const Creature: NextPage = () => {
           onChange={(e) => setName(e.currentTarget.value)}
         />
         <label htmlFor="type">Type</label>
-        <input
-          className="border-2 border-black text-center"
-          type="text"
-          name="type"
-          id="type"
-          value={type}
-          onChange={(e) => setType(e.currentTarget.value)}
-        />
-        <select>
+        <select value={type} onChange={(e) => setType(e.currentTarget.value)}>
           {Types.map((t) => (
-            <option key={t[0]}>{t[0]}</option>
+            <option key={t[0]} value={t[0]}>
+              {t[0]}
+            </option>
           ))}
         </select>
         <label htmlFor="health">Health</label>
