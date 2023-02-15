@@ -66,10 +66,11 @@ model VerificationToken {
 }
 
 model Creature {
-    id     String  @id @default(cuid())
-    name   String
-    type   String
-    health Int
-    power  Int
-    image  String?
+    id          String  @id @default(cuid())
+    name        String
+    type        String
+    health      Int
+    power       Int
+    image       String?
+    description String
 }

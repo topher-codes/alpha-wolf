@@ -6,7 +6,7 @@ import { number, string, z } from "zod";
 import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 
 export const creatureRouter = createTRPCRouter({
-  create: protectedProcedure
+  create: publicProcedure
     .input(
       z.object({
         name: string(),
@@ -14,6 +14,7 @@ export const creatureRouter = createTRPCRouter({
         health: number(),
         power: number(),
         image: string(),
+        description: string(),
       })
     )
     .mutation(({ input, ctx }) => {
@@ -24,10 +25,11 @@ export const creatureRouter = createTRPCRouter({
           health: input.health,
           power: input.power,
           image: input.image,
+          description: input.description,
         },
       });
     }),
-  getAll: publicProcedure.input(z.object({})).query(async ({ ctx }) => {
+  getAll: publicProcedure.query(async ({ ctx }) => {
     return ctx.prisma.creature.findMany();
   }),
   getOne: publicProcedure
