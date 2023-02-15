@@ -27,4 +27,20 @@ export const creatureRouter = createTRPCRouter({
         },
       });
     }),
+  getAll: publicProcedure.input(z.object({})).query(async ({ ctx }) => {
+    return ctx.prisma.creature.findMany();
+  }),
+  getOne: publicProcedure
+    .input(
+      z.object({
+        id: string(),
+      })
+    )
+    .query(async ({ ctx, input }) => {
+      return ctx.prisma.creature.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+    }),
 });

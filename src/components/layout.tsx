@@ -30,6 +30,10 @@ export const Layout = ({ children }: PropsWithChildren) => {
           <div className="mx-4 flex w-auto items-center justify-center text-2xl font-bold text-white">
             <Link href="/creature">Creature</Link>
           </div>
+          {" | "}
+          <div className="mx-4 flex w-auto items-center justify-center text-2xl font-bold text-white">
+            <Link href="/creatures">Creatures</Link>
+          </div>
         </nav>
       </header>
       <main className="container min-h-screen">{children}</main>
