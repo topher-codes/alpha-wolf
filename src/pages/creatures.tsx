@@ -14,6 +14,7 @@ const Creatures: NextPage = () => {
           className="flex w-80 flex-col flex-wrap items-center border"
         >
           <Link href="#">{creature.name}</Link>
+          <p>{creature.image}</p>
         </div>
       ))}
     </div>

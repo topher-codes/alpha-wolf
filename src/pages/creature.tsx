@@ -10,6 +10,7 @@ const Creature: NextPage = () => {
   const [health, setHealth] = useState(0);
   const [power, setPower] = useState(0);
   const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
   const creatureCreate = api.creature.create.useMutation();
   return (
     <div className="  flex w-screen items-center justify-center">
@@ -58,6 +59,14 @@ const Creature: NextPage = () => {
           value={image}
           onChange={(e) => setImage(e.currentTarget.value)}
         />
+        <label htmlFor="description">Description</label>
+        <textarea
+          className="border-2 border-black text-center"
+          name="description"
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.currentTarget.value)}
+        />
         <button
           type="button"
           onClick={() => {
@@ -67,6 +76,7 @@ const Creature: NextPage = () => {
               health,
               power,
               image,
+              description,
             });
           }}
         >

@@ -1,8 +1,9 @@
-import type { NextPage } from "next";
 import Image from "next/image";
 import CreatureCard from "../components/creaturecard";
+import { api } from "../utils/api";
 
-const Home: NextPage = () => {
+const Home: React.FC = () => {
+  const query = api.creature.getAll.useQuery();
   return (
     <>
       <div className="flex w-screen items-center justify-center p-4">
@@ -28,7 +29,9 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="flex min-h-screen w-screen flex-col items-center justify-center p-10">
-        <CreatureCard />
+        {query.data?.map((creature) => (
+          <CreatureCard key={creature.id} creature={creature} />
+        ))}
       </div>
     </>
   );
