@@ -10,6 +10,7 @@ interface CreatureCardProps {
 const CreatureCard: React.FC<CreatureCardProps> = ({ creature }) => {
   return (
     <div className="flex w-80 flex-col flex-wrap items-center border">
+      <div className=" w-full text-right">{creature.name}</div>
       <Image
         src={creature.image as string}
         alt="Nothing"
@@ -17,9 +18,7 @@ const CreatureCard: React.FC<CreatureCardProps> = ({ creature }) => {
         height={200}
       />
       <div className="flex flex-col ">
-        <div className="text-2xl font-bold">
-          This is some placeholder text can't you see that?
-        </div>
+        <div className="h-20 font-bold">{creature.description}</div>
       </div>
     </div>
   );
